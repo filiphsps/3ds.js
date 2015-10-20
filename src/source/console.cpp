@@ -39,7 +39,11 @@ int console_print(duk_context *ctx) {
 int console_init(duk_context *ctx) {
 	//TODO: Check if we're using 3DS_UI
 	
-	consoleInit(GFX_TOP, NULL);
+	string scr = (char*)duk_to_string(ctx, 0);
+	if(scr == "bottom")
+		consoleInit(GFX_BOTTOM, NULL);
+	else
+		consoleInit(GFX_TOP, NULL);
 	printf("\x1b[0;0H"); //Reset position
 	
 	return 0;

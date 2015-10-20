@@ -4,7 +4,7 @@
 * This example showcases input
 */
 
-Console.init("TOP");
+Console.init("top");
 Console.clear(); //Clear the screen
 print("Press B to exit the loop");
 while(1){

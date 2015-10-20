@@ -4,7 +4,7 @@
 * This example showcases how to use modules
 */
 
-Console.init("TOP");
+Console.init("top");
 Console.clear(); //Clear the screen
 Console.print("\x1b[0;0H"); //Clear the screen
 Console.print("Hello World from app.js");

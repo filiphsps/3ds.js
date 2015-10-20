@@ -7,7 +7,7 @@
 var running = true;
 main();
 function main() {
-	Console.init("TOP");
+	Console.init("bottom");
 	
 	//Draw Menu
 	menu([
@@ -68,9 +68,9 @@ function menu(items) {
 		var input = Input.getInput();
 		if(input.KEY_A) {
 			items[position].renderer();
-		} else if(input.KEY_RIGHT) {
+		} else if(input.KEY_DOWN) {
 			position = (position + 1) <= (items.length - 1) ? (position + 1) : 0;
-		} else if(input.KEY_LEFT) {
+		} else if(input.KEY_UP) {
 			position = (position - 1) >= 0 ? (position - 1) : (items.length - 1);
 		}
 		

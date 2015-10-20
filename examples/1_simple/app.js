@@ -4,7 +4,7 @@
 * This example showcases a benchmarking
 */
 
-Console.init("TOP");
+Console.init("top");
 Console.clear(); //Clear the screen
 Console.print("3ds.js version: " + platform.version);
 Console.print("duktape version: " + Duktape.version);
