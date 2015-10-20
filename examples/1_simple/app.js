@@ -4,13 +4,14 @@
 * This example showcases a benchmarking
 */
 
-print("\x1b[0;0H"); //Clear the screen
-print("3ds.js version: " + platform.version);
-print("duktape version: " + Duktape.version);
+Console.init("TOP");
+Console.clear(); //Clear the screen
+Console.print("3ds.js version: " + platform.version);
+Console.print("duktape version: " + Duktape.version);
 
 //Based on http://duktape.org/guide.html#gettingstarted
 function banchmark1() {
-	print("\n\n\n(1/3) Benchmarking an algorithm...\n");
+	Console.print("\n\n\n(1/3) Benchmarking an algorithm...\n");
 	function fib(n) {
 		if (n == 0) { return 0; }
 		if (n == 1) { return 1; }
@@ -25,12 +26,12 @@ function banchmark1() {
 	var t0 = new Date().getTime();
 	test();
 	var t1 = new Date().getTime();
-	print("Took " + (t1 - t0).toString() + " millisecond(s).");
+	Console.print("Took " + (t1 - t0).toString() + " millisecond(s).\n");
 }
 
 //Based on http://blog.scottlogic.com/2010/10/15/javascript-array-performance.html
 function banchmark2() {
-	print("\n\n\n(2/3) Benchmarking arrays...\n");
+	Console.print("\n\n\n(2/3) Benchmarking arrays...\n");
 	var result = 0;
     var a = [];
 
@@ -46,12 +47,12 @@ function banchmark2() {
       result += end - start;
     }
 
-    print("Took " + result.toString() + " millisecond(s).");
+    Console.print("Took " + result.toString() + " millisecond(s).\n");
 }
 
 //Based on http://www.sitepoint.com/measuring-javascript-functions-performance/
 function banchmark3() {
-	print("\n\n\n(3/3) Benchmarking hash generation...\n");
+	Console.print("\n\n\n(3/3) Benchmarking hash generation...\n");
 	function makeHash(source) {
 	  var hash = 0;
 	  if (source.length === 0) return hash;
@@ -71,7 +72,7 @@ function banchmark3() {
 	var end = new Date().getTime();
     result += end - start;
 
-    print("Took " + result.toString() + " millisecond(s).");
+    Console.print("Took " + result.toString() + " millisecond(s).\n");
 }
 
 banchmark1();

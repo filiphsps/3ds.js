@@ -4,6 +4,8 @@
 * This example showcases input
 */
 
+Console.init("TOP");
+Console.clear(); //Clear the screen
 print("Press B to exit the loop");
 while(1){
     var input = Input.getInput();
@@ -12,5 +14,5 @@ while(1){
         break;
 	
 	if(input.KEY)
-		print(JSON.stringify(input, null, 2));
+		Console.print(JSON.stringify(input, null, 2));
 }

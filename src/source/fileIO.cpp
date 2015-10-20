@@ -10,6 +10,7 @@
 
 using namespace std;
 
+
 /*
     taken from http://stackoverflow.com/a/3464656/3142553 because I'm lazy
 */

@@ -4,8 +4,10 @@
 * This example showcases how to use modules
 */
 
-print("\x1b[0;0H"); //Clear the screen
-print("Hello World from app.js");
+Console.init("TOP");
+Console.clear(); //Clear the screen
+Console.print("\x1b[0;0H"); //Clear the screen
+Console.print("Hello World from app.js");
 
 var lib = require('library');
 lib.hello(lib.world);

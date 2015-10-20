@@ -4,3 +4,6 @@
 #pragma once
 
 #define __FRAMEWORK_VERSION__ "0.1"
+
+void initialize(void);
+void deInitialize(void);

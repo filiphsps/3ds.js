@@ -1,6 +1,6 @@
 module.exports = {
 	hello: function (text) {
-		print(text);
+		Console.print(text);
 	},
 	world: "Hello World from library.js",
 }
