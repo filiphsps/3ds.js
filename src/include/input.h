@@ -13,12 +13,10 @@
 using namespace std;
 
 
-int input_getTouch(duk_context *ctx);
-int input_getKeyDown(duk_context *ctx);
+int input_getInput(duk_context *ctx);
 void inputInit(duk_context *ctx);
 
 static duk_function_list_entry input_funcs[] = {
-	{ "getTouch", input_getTouch, 2 },
-	{ "getKeyDown", input_getKeyDown, 1 },
+	{ "getInput", input_getInput, 1 },
 	{ NULL, NULL, 0 }
 };

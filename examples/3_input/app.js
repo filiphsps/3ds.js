@@ -6,14 +6,11 @@
 
 print("Press B to exit the loop");
 while(1){
-    var inp = Input.getKeyDown();
-    var toh = Input.getTouch();
+    var input = Input.getInput();
 
-    if(inp && inp == 2)
+    if(input.KEY_B)
         break;
-    else if(inp)
-        print("Key: " + inp);
-    
-    if(toh.isDown)
-        print("Touch: " + toh.x + ", " + toh.y);
+	
+	if(input.KEY)
+		print(JSON.stringify(input, null, 2));
 }

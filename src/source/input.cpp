@@ -11,36 +11,52 @@
 
 using namespace std;
 
-int input_getTouch(duk_context *ctx){
+int input_getInput(duk_context *ctx) {
 	hidScanInput();
-	u32 kDown = hidKeysDown();
 	touchPosition tp;
+	u32 kDown = hidKeysDown();
 	hidTouchRead(&tp);
 	
-	bool isDown = false;
-	int x = tp.px, y = tp.py;
-	
-	if(kDown & KEY_TOUCH){
-		isDown = true;
-	}
-	
 	duk_idx_t obj = duk_push_object(ctx);
-	duk_push_boolean(ctx, isDown);
-	duk_put_prop_string(ctx, obj, "isDown");
 	
-	duk_push_number(ctx, x);
-	duk_put_prop_string(ctx, obj, "x");
+	duk_push_boolean(ctx, (kDown));
+	duk_put_prop_string(ctx, obj, "KEY");
 	
-	duk_push_number(ctx, y);
-	duk_put_prop_string(ctx, obj, "y");
-	return 1;
-}
-
-int input_getKeyDown(duk_context *ctx) {
-	hidScanInput();
-	u32 kDown = hidKeysDown();
+	duk_push_boolean(ctx, (kDown & KEY_A));
+	duk_put_prop_string(ctx, obj, "KEY_A");
+	duk_push_boolean(ctx, (kDown & KEY_B));
+	duk_put_prop_string(ctx, obj, "KEY_B");
+	duk_push_boolean(ctx, (kDown & KEY_X));
+	duk_put_prop_string(ctx, obj, "KEY_X");
+	duk_push_boolean(ctx, (kDown & KEY_Y));
+	duk_put_prop_string(ctx, obj, "KEY_Y");
 	
-	duk_push_number(ctx, (int)kDown);
+	duk_push_boolean(ctx, (kDown & KEY_UP));
+	duk_put_prop_string(ctx, obj, "KEY_UP");
+	duk_push_boolean(ctx, (kDown & KEY_RIGHT));
+	duk_put_prop_string(ctx, obj, "KEY_RIGHT");
+	duk_push_boolean(ctx, (kDown & KEY_DOWN));
+	duk_put_prop_string(ctx, obj, "KEY_DOWN");
+	duk_push_boolean(ctx, (kDown & KEY_LEFT));
+	duk_put_prop_string(ctx, obj, "KEY_LEFT");
+	
+	duk_push_boolean(ctx, (kDown & KEY_START));
+	duk_put_prop_string(ctx, obj, "KEY_START");
+	duk_push_boolean(ctx, (kDown & KEY_SELECT));
+	duk_put_prop_string(ctx, obj, "KEY_SELECT");
+	
+	duk_push_boolean(ctx, (kDown & KEY_L));
+	duk_put_prop_string(ctx, obj, "KEY_L");
+	duk_push_boolean(ctx, (kDown & KEY_R));
+	duk_put_prop_string(ctx, obj, "KEY_R");
+	
+	duk_push_boolean(ctx, (kDown & KEY_TOUCH));
+	duk_put_prop_string(ctx, obj, "KEY_TOUCH");
+	duk_push_number(ctx, (int)tp.px);
+	duk_put_prop_string(ctx, obj, "TOUCH_X");
+	duk_push_number(ctx, (int)tp.py);
+	duk_put_prop_string(ctx, obj, "TOUCH_Y");
+	
 	return 1;
 }
 
