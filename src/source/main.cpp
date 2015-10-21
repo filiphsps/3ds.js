@@ -74,6 +74,10 @@ int main(int argc, const char** argv) {
 void initialize(void){
 	srvInit();
 	aptInit();
+	ptmInit();
+	amInit();
+	nsInit();
+	initCfgu();
 	hidInit();
 	fsInit();
 	sdmcInit();
@@ -92,6 +96,10 @@ void deInitialize(void){
 	fsExit();
 	sdmcExit();
 	hidExit();
+	exitCfgu();
+	nsExit();
+	amExit();
+	ptmExit();
 	aptExit();
 	srvExit();
 	exit(1);
