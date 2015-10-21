@@ -2,8 +2,9 @@
 ## 1.0
 - [x] Module support
 - [x] Console (printf, etc)
-- [ ] GFX (Via 3DS_UI)
+- [ ] GFX (Directly via sf2d, sftd & sfil-lib)
 - [x] Input (Keys & Touch)
 - [ ] Networking
 - [ ] File I/O (Read & Write)
-- [ ] Documentation
+- [ ] Threading
+- [ ] Documentation'
