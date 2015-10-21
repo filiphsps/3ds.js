@@ -10,7 +10,7 @@ script:
 - make clean
 - make
 before_deploy:
-- zip $TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER "*.3dsx" "*.smdh" "../examples" "../README.md" "../LICENSE"
+- zip $TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER *.3dsx *.smdh
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - export GIT_TAG=$TRAVIS_BRANCH-rev$TRAVIS_BUILD_NUMBER
