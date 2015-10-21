@@ -84,10 +84,7 @@ void initialize(void){
 	gfxInitDefault();
 	//uiInit();
 	
-	//Hacky way to improve n3ds performance
-	aptOpenSession();
-	APT_SetAppCpuTimeLimit(NULL, 80);
-	aptCloseSession();
+	osSetSpeedupEnable(true);
 }
 
 void deInitialize(void){
