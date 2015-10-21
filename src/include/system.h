@@ -13,4 +13,4 @@
 using namespace std;
 
 
-void dsJSInit(duk_context *ctx);
+void systemInit(duk_context *ctx);

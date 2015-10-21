@@ -6,8 +6,8 @@
 
 Console.init("top");
 Console.clear(); //Clear the screen
-Console.print("3ds.js version: " + platform.version);
-Console.print("duktape version: " + Duktape.version);
+Console.print("3ds.js version: " + System.version + "\n");
+Console.print("duktape version: " + Duktape.version + "\n");
 
 //Based on http://duktape.org/guide.html#gettingstarted
 function banchmark1() {

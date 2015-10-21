@@ -10,7 +10,7 @@
 #include "main.h"
 #include "duktape/duktape.h"
 #include "console.h"
-#include "3dsjs.h"
+#include "system.h"
 #include "input.h"
 #include "fileIO.h"
 
@@ -51,7 +51,7 @@ int main(int argc, const char** argv) {
 	
 	//Register Helpers
 	jsConsoleInit(ctx);
-	dsJSInit(ctx);
+	systemInit(ctx);
 	inputInit(ctx);
 	fileIOInit(ctx);
 	
