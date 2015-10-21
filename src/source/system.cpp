@@ -160,3 +160,15 @@ void systemInit(duk_context *ctx) {
 	duk_put_global_string(ctx, "System");
 	duk_pop(ctx);
 }
+
+//Based on https://github.com/Rinnegatamante/lpp-3ds/blob/77712c9bbaa86f70aeae664f69ab88e66783bfc7/source/luaSystem.cpp#L54
+void unicodeToChar(char* dst, u16* src){
+	if(!src || !dst)return;
+	while(*src)*(dst++)=(*(src++))&0xFF;
+	*dst=0x00;
+}
+void charToUnicode(u16* dst, char* src){
+	if(!src || !dst)return;
+	while(*src)*(dst++)=(*src++);
+	*dst=0x00;
+}
