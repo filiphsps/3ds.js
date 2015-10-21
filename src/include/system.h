@@ -15,5 +15,5 @@ using namespace std;
 
 void systemInit(duk_context *ctx);
 
-void unicodeToChar(char* dst, u16* src);
-void charToUnicode(u16* dst, char* src);
+inline void unicodeToChar(char* dst, u16* src);
+inline void charToUnicode(u16* dst, char* src);
