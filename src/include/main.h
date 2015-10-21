@@ -3,7 +3,7 @@
 //   Please see the LICENSE for more info!
 #pragma once
 
-#define __FRAMEWORK_VERSION__ "0.1"
+#define __FRAMEWORK_VERSION__ 10000
 
 #include <iostream>
 #include <stdio.h>

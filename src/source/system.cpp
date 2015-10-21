@@ -28,7 +28,7 @@ void systemInit(duk_context *ctx) {
 	duk_push_global_object(ctx);
 	duk_idx_t obj_idx = duk_push_object(ctx);
 	
-	duk_push_string(ctx, __FRAMEWORK_VERSION__);
+	duk_push_number(ctx, __FRAMEWORK_VERSION__);
 	duk_put_prop_string(ctx, obj_idx, "version");
 	
 	duk_push_c_function(ctx, system_reboot, 0);
