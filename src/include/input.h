@@ -16,7 +16,4 @@ using namespace std;
 int input_getInput(duk_context *ctx);
 void inputInit(duk_context *ctx);
 
-static duk_function_list_entry input_funcs[] = {
-	{ "getInput", input_getInput, 1 },
-	{ NULL, NULL, 0 }
-};
+extern duk_function_list_entry input_funcs[];

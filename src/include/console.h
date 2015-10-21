@@ -20,11 +20,4 @@ int console_init(duk_context *ctx);
 void jsConsoleInit(duk_context *ctx);
 void die(string msg);
 
-static duk_function_list_entry console_funcs[] = {
-	{ "flushBuffers", console_flushBuffers, 5 },
-	{ "clear", console_clear, 4 },
-	//{ "printAt", console_print, 3 },
-	{ "print", console_print, 2 },
-	{ "init", console_init, 1 },
-	{ NULL, NULL, 0 }
-};
+extern duk_function_list_entry console_funcs[];

@@ -20,6 +20,26 @@ using namespace std;
 duk_context *ctx = NULL;
 
 int main(int argc, const char** argv) {
+	
+	//Based on https://github.com/Rinnegatamante/lpp-3ds/blob/master/source/main.cpp#L86
+	if (argc > 0) {
+		char path[256];
+		int latest_slash = 0,
+			i=5;
+		while (argv[0][i]  != '\0'){
+			if (argv[0][i] == '/') latest_slash = i;
+			i++;
+		}
+		strcpy(path,&argv[0][5]);
+		path[latest_slash-5] = 0;
+		
+		execPath = string(path);
+		scriptPath = execPath + "/app.js";
+	} else {
+		execPath = "/";
+		scriptPath = execPath + "app.js";
+	}
+	//-----------
 	initialize();
 	
 	//Create HEAP
@@ -37,11 +57,10 @@ int main(int argc, const char** argv) {
 	
 	//Handle module loading
 	//TODO: Load 'em from the same directory as the 3dsx file
-	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read('/' + id + '.js').toString();}");
+	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read(id + '.js').toString();}");
 
 	//Load "app.js"
-	//TODO: Load it from the same directory as the 3dsx file
-	if (duk_peval_file(ctx, "/app.js") != 0) {
+	if (duk_peval_file(ctx, (char*)scriptPath.c_str()) != 0) {
         die(duk_safe_to_string(ctx, -1));
 		while (1) { }
     }
@@ -63,7 +82,7 @@ void initialize(void){
 	
 	//Hacky way to improve n3ds performance
 	aptOpenSession();
-	Result ret = APT_SetAppCpuTimeLimit(NULL, 80);
+	APT_SetAppCpuTimeLimit(NULL, 80);
 	aptCloseSession();
 }
 

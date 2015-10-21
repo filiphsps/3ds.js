@@ -11,6 +11,12 @@
 
 using namespace std;
 
+
+duk_function_list_entry input_funcs[] = {
+	{ "getInput", input_getInput, 1 },
+	{ NULL, NULL, 0 }
+};
+
 int input_getInput(duk_context *ctx) {
 	hidScanInput();
 	touchPosition tp;

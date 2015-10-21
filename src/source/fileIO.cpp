@@ -11,6 +11,12 @@
 using namespace std;
 
 
+duk_function_list_entry fileIO_funcs[] = {
+	{ "write", fileIO_write, 2 },
+	{ "read", fileIO_read, 1 },
+	{ NULL, NULL, 0 }
+};
+
 /*
     taken from http://stackoverflow.com/a/3464656/3142553 because I'm lazy
 */
@@ -40,6 +46,18 @@ int fileIO_read(duk_context *ctx) {
 	char *fn = (char*)duk_to_string(ctx, 0);
 	duk_push_string(ctx, _readFile(fn));
 	return 1;
+}
+
+//FileIO.write placeholder
+int fileIO_write(duk_context *ctx) {
+    char *fn = (char*)duk_to_string(ctx, 0);
+    char *out = (char*)duk_to_string(ctx, 1);
+    
+    if (fn[0] != '/') sprintf(fn, "%s/%s", (char*)execPath.c_str(), fn);
+    printf(fn);
+    //TODO: Write to file
+    
+    return 1;
 }
 
 void fileIOInit(duk_context *ctx) {

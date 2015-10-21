@@ -5,5 +5,13 @@
 
 #define __FRAMEWORK_VERSION__ "0.1"
 
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
 void initialize(void);
 void deInitialize(void);
+
+static std::string execPath,
+			  scriptPath;
