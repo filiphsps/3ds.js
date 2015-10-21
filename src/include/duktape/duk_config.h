@@ -38,6 +38,8 @@
  *
  *    gcc -dM -E - </dev/null   # http://www.brain-dump.org/blog/entry/107
  */
+ 
+#define DUK_OPT_JSON_STRINGIFY_FASTPATH
 
 #ifndef DUK_CONFIG_H_INCLUDED
 #define DUK_CONFIG_H_INCLUDED

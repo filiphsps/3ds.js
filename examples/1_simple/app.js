@@ -78,3 +78,4 @@ function banchmark3() {
 banchmark1();
 banchmark2();
 banchmark3();
+while(1){Console.flushBuffers()};
