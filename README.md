@@ -13,3 +13,9 @@
   <h3 align="center">Dependencies</h3>
   <p align="center"><a href="https://github.com/smealum/ctrulib">ctrulib</a></p>
 </div>
+
+<div align="center">
+  <h3 align="center">Building</h3>
+  <p align="center">Make sure you're running the latest commit of <a href="https://github.com/smealum/ctrulib">ctrulib</a></p>
+  <p align="center">Navigate to '/src' and type 'make'</a></p>
+</div>
