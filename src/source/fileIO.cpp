@@ -12,6 +12,7 @@ using namespace std;
 
 
 duk_function_list_entry fileIO_funcs[] = {
+	{ "getExecPath", fileIO_getExecPath, 3 },
 	{ "write", fileIO_write, 2 },
 	{ "read", fileIO_read, 1 },
 	{ NULL, NULL, 0 }
