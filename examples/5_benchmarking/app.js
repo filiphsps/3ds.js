@@ -1,6 +1,6 @@
 /*
 * 3ds.js
-* Example 5 "Benchmark"
+* Example 5 "Benchmarking"
 * This example showcases a benchmarking
 */
 
