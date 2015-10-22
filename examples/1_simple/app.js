@@ -1,7 +1,7 @@
 /*
 * 3ds.js
 * Example 1 "Simple"
-* This example showcases a benchmarking
+* This example showcases simple output & input
 */
 
 Console.init("top");
