@@ -42,6 +42,11 @@ char* _readFile(char* filename) {
     return buffer;
 }
 
+int fileIO_getExecPath(duk_context *ctx) {
+	duk_push_string(ctx, (char*)execPath.c_str());
+	return 1;
+}
+
 int fileIO_read(duk_context *ctx) {
 	char *fn = (char*)duk_to_string(ctx, 0);
 	duk_push_string(ctx, _readFile(fn));
