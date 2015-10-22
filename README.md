@@ -16,6 +16,7 @@
 
 <div align="center">
   <h3 align="center">Building</h3>
-  <p align="center">Make sure you're running the latest commit of <a href="https://github.com/smealum/ctrulib">ctrulib</a></p>
-  <p align="center">Navigate to '/src' and type 'make'</a></p>
+  <p align="center">
+    1. Make sure you're running the latest commit of <a href="https://github.com/smealum/ctrulib">ctrulib</a><br />
+    2. Navigate to '/src' and type 'make'</a></p>
 </div>
