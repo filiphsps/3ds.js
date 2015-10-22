@@ -11,3 +11,10 @@ Console.print("Hello World from app.js");
 
 var lib = require('library');
 lib.hello(lib.world);
+
+while(1) {
+    var input = Input.getInput();
+    if(input.KEY_A)
+        break;
+    Console.flushBuffers();
+}
