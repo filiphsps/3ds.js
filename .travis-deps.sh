@@ -26,7 +26,3 @@ git clone https://github.com/xerpi/sftdlib.git
 
 # sfillib
 git clone https://github.com/xerpi/sfillib.git
-
-# 3DS_UI
-git clone https://github.com/filfat/3DS_UI.git
-cd 3DS_UI ; cd - # TODO: Build
