@@ -2,6 +2,8 @@
 //   © 2015-Present filfat Studios AB
 //   Please see the LICENSE for more info!
 
+#define LOGGING
+
 #include <3ds.h>
 #include <iostream>
 #include <stdio.h>
@@ -82,7 +84,7 @@ void initialize(void) {
 	sdmcInit();
 	gfxInitDefault();
 	httpcInit();
-
+	logInit();
 	osSetSpeedupEnable(true);
 }
 
@@ -101,8 +103,44 @@ void deInitialize(void) {
 	exit(1);
 }
 
-void log(string message) {
-	#ifdef LOGGING
-	//TODO: logging
-	#endif
+#ifdef LOGGING
+static FILE * fdebug = NULL;
+#endif
+
+int logInit() {
+#ifdef LOGGING
+	char logPath[256];
+	sprintf(logPath, "%sdebug.log", execPath.c_str());
+   	fdebug = fopen(logPath, "wb");
+	if (fdebug) {
+		log("3ds.js v%i", __FRAMEWORK_VERSION__);
+		log("by filfat Studios AB & Filiph Sandström");
+		log("==========================================\n");
+		return 0;
+	}
+#endif
+   	return -1;
+}
+int logExit() {
+#ifdef LOGGING
+	if (fdebug) fclose (fdebug);
+   	fdebug = NULL;
+	return 0;
+#endif
+   	return -1;
+}
+int log(const char *text, ...) {
+#ifdef LOGGING
+	if (text == NULL) return -1;
+	va_list argp;
+	va_start(argp, text);
+	if (fdebug) {
+		vfprintf(fdebug, text, argp);
+		fprintf(fdebug, "\r\n");
+		fflush(fdebug);
+	}
+	va_end(argp);
+	return 0;
+#endif
+	return -1;
 }

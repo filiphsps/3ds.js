@@ -12,7 +12,9 @@
 
 void initialize(void);
 void deInitialize(void);
-void log(std::string message);
+int logInit();
+int logExit();
+int log(const char *text, ...);
 
 static std::string execPath,
 			  scriptPath;
