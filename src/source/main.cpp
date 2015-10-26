@@ -34,7 +34,7 @@ int main(int argc, const char** argv) {
 		path[latest_slash-5] = 0;
 		
 		execPath = string(path);
-		scriptPath = execPath + "/app.js";
+		scriptPath = execPath + "app.js";
 	} else {
 		execPath = "/";
 		scriptPath = execPath + "app.js";
@@ -57,12 +57,11 @@ int main(int argc, const char** argv) {
 	
 	//Handle module loading
 	//TODO: Load 'em from the same directory as the 3dsx file
-	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read(id + '.js').toString();}");
+	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read((id.charAt(0) == '/' ? '' : FileIO.getExecPath()) + id + '.js').toString();}");
 
 	//Load "app.js"
 	if (duk_peval_file(ctx, (char*)scriptPath.c_str()) != 0) {
         die(duk_safe_to_string(ctx, -1));
-		while (1) { }
     }
 	
 	//Destory the HEAP
@@ -71,7 +70,7 @@ int main(int argc, const char** argv) {
 	deInitialize();
 }
 
-void initialize(void){
+void initialize(void) {
 	srvInit();
 	aptInit();
 	ptmInit();
@@ -82,13 +81,13 @@ void initialize(void){
 	fsInit();
 	sdmcInit();
 	gfxInitDefault();
-	//uiInit();
-	
+	httpcInit();
+
 	osSetSpeedupEnable(true);
 }
 
-void deInitialize(void){
-	//uiExit();
+void deInitialize(void) {
+	httpcExit();
 	gfxExit();
 	fsExit();
 	sdmcExit();
@@ -100,4 +99,10 @@ void deInitialize(void){
 	aptExit();
 	srvExit();
 	exit(1);
+}
+
+void log(string message) {
+	#ifdef LOGGING
+	//TODO: logging
+	#endif
 }

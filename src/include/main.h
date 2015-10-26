@@ -12,6 +12,7 @@
 
 void initialize(void);
 void deInitialize(void);
+void log(std::string message);
 
 static std::string execPath,
 			  scriptPath;

@@ -10,12 +10,4 @@
 #include "main.h"
 #include "duktape/duktape.h"
 
-using namespace std;
-
-
-int input_getInputDown(duk_context *ctx);
-int input_getInputUp(duk_context *ctx);
-int input_getInput(duk_context *ctx);
-void inputInit(duk_context *ctx);
-
-extern duk_function_list_entry input_funcs[];
+void networkInit(duk_context *ctx);

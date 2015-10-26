@@ -48,7 +48,7 @@ int system_getRegion(duk_context *ctx) {
 	return 1;
 }
 int system_getProfile(duk_context *ctx) {
-	//Placeholder
+	log("Warning: Called System.getProfile stub");
 	return 1;
 }
 int system_getFirmwareVersion(duk_context *ctx) {
@@ -67,7 +67,7 @@ int system_getModel(duk_context *ctx) {
 }
 
 int system_launch3DSX(duk_context *ctx) {
-	//Placeholder
+	log("Warning: Called System.launch3DSX stub");
 	return 0;
 }
 

@@ -10,9 +10,6 @@
 #include "main.h"
 #include "duktape/duktape.h"
 
-using namespace std;
-
-
 void systemInit(duk_context *ctx);
 
 inline void unicodeToChar(char* dst, u16* src);
