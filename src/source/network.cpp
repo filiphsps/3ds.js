@@ -56,4 +56,6 @@ void networkInit(duk_context *ctx) {
 	
 	duk_put_global_string(ctx, "Network");
 	duk_pop(ctx);
+	
+	log("[Init] networkInit: Done!");
 }

@@ -159,6 +159,8 @@ void systemInit(duk_context *ctx) {
 	
 	duk_put_global_string(ctx, "System");
 	duk_pop(ctx);
+	
+	log("[Init] systemInit: Done!");
 }
 
 //Based on https://github.com/Rinnegatamante/lpp-3ds/blob/77712c9bbaa86f70aeae664f69ab88e66783bfc7/source/luaSystem.cpp#L54

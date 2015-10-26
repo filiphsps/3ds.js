@@ -172,4 +172,6 @@ void inputInit(duk_context *ctx) {
 	duk_put_function_list(ctx, -1, input_funcs);
 	duk_put_prop_string(ctx, -2, "Input");
 	duk_pop(ctx);
+	
+	log("[Init] inputInit: Done!");
 }

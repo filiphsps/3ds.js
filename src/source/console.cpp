@@ -41,6 +41,7 @@ int console_clear(duk_context *ctx) {
 int console_print(duk_context *ctx) {
 	char *tx = (char*)duk_to_string(ctx, 0);
 	printf(tx);
+	log("[Console] Print: \"%s\"", tx);
 	return 0;
 }
 
@@ -63,6 +64,7 @@ void jsConsoleInit(duk_context *ctx) {
 	duk_put_function_list(ctx, -1, console_funcs);
 	duk_put_prop_string(ctx, -2, "Console");
 	duk_pop(ctx);
+	log("[Init] jsConsoleInit: Done!");
 }
 
 void die(string msg){

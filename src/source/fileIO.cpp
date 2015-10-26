@@ -73,4 +73,6 @@ void fileIOInit(duk_context *ctx) {
 	duk_put_function_list(ctx, -1, fileIO_funcs);
 	duk_put_prop_string(ctx, -2, "FileIO");
 	duk_pop(ctx);
+    
+    log("[Init] fileIOInit: Done!");
 }

@@ -2,6 +2,7 @@
 //   © 2015-Present filfat Studios AB
 //   Please see the LICENSE for more info!
 
+//Comment the next line to disable logging (it will result in a speedup)
 #define LOGGING
 
 #include <3ds.h>
@@ -46,11 +47,14 @@ int main(int argc, const char** argv) {
 	initialize();
 	
 	//Create HEAP
+	log("[JavaScript] Heap: Creating...");
 	ctx = duk_create_heap_default();
 	if(!ctx) {
+		log("[ERROR] Failed to create a Duktape HEAP!");
         die("Failed to create a Duktape HEAP!");
         while (1) { }
     }
+	log("[JavaScript] Heap: Done!");
 	
 	//Register Helpers
 	jsConsoleInit(ctx);
@@ -64,12 +68,15 @@ int main(int argc, const char** argv) {
 	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read((id.charAt(0) == '/' ? '' : FileIO.getExecPath()) + id + '.js').toString();}");
 
 	//Load "app.js"
+	log("[JavaScript] Runtime: Running %s...", scriptPath.c_str());
 	if (duk_peval_file(ctx, (char*)scriptPath.c_str()) != 0) {
+		log("[ERROR] %s", duk_safe_to_string(ctx, -1));
         die(duk_safe_to_string(ctx, -1));
     }
 	
 	//Destory the HEAP
 	duk_destroy_heap(ctx);
+	log("[JavaScript] Heap: Destroyed!");
 	
 	deInitialize();
 }
@@ -91,6 +98,7 @@ void initialize(void) {
 }
 
 void deInitialize(void) {
+	logExit();
 	httpcExit();
 	gfxExit();
 	fsExit();
@@ -116,8 +124,9 @@ int logInit() {
    	fdebug = fopen(logPath, "wb");
 	if (fdebug) {
 		log("3ds.js v%i", __FRAMEWORK_VERSION__);
-		log("by filfat Studios AB & Filiph Sandström");
-		log("==========================================\n");
+		log("Copyright (c) 2015-Present filfat Studios AB & Filiph Sandström");
+		log("===============================================================");
+		log("[JavaScript] Runtime: execPath is \"%s\"", execPath.c_str());
 		return 0;
 	}
 #endif
