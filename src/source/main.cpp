@@ -15,6 +15,7 @@
 #include "system.h"
 #include "input.h"
 #include "fileIO.h"
+#include "network.h"
 
 using namespace std;
 
@@ -56,7 +57,8 @@ int main(int argc, const char** argv) {
 	systemInit(ctx);
 	inputInit(ctx);
 	fileIOInit(ctx);
-	
+	networkInit(ctx);
+		
 	//Handle module loading
 	//TODO: Load 'em from the same directory as the 3dsx file
 	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read((id.charAt(0) == '/' ? '' : FileIO.getExecPath()) + id + '.js').toString();}");
