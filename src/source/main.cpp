@@ -121,7 +121,7 @@ int logInit() {
 #ifdef LOGGING
 	char logPath[256];
 	sprintf(logPath, "%sdebug.log", execPath.c_str());
-   	fdebug = fopen(logPath, "wb");
+   	fdebug = fopen(/*logPath*/"/3dsjs.log", "wb");
 	if (fdebug) {
 		log("3ds.js v%i", __FRAMEWORK_VERSION__);
 		log("Copyright (c) 2015-Present filfat Studios AB & Filiph Sandström");
