@@ -37,7 +37,7 @@ int main(int argc, const char** argv) {
 		strcpy(path,&argv[0][5]);
 		path[latest_slash-5] = 0;
 		
-		execPath = "/" + string(path);
+		execPath = string(path) + "/";
 		scriptPath = execPath + "app.js";
 	} else {
 		execPath = "/";
