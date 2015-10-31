@@ -2,7 +2,8 @@
 ## 1.0
 - [ ] System
 - [x] Console (printf, etc)
-- [ ] GFX (OpenGL)
+- [ ] GFX (OpenGL?)
+- [ ] UI (librocket?)
 - [x] Input (Keys & Touch)
 - [ ] Keyboard
 - [ ] Networking
