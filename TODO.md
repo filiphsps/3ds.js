@@ -2,7 +2,7 @@
 ## 1.0
 - [ ] System
 - [x] Console (printf, etc)
-- [ ] GFX (Directly via sf2d, sftd & sfil-lib)
+- [ ] GFX (OpenGL)
 - [x] Input (Keys & Touch)
 - [ ] Keyboard
 - [ ] Networking
