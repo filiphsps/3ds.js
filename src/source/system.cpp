@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "system.h"
+#include "zip.h"
 #include "duktape/duktape.h"
 
 using namespace std;
@@ -113,6 +114,17 @@ int system_getAppStatus(duk_context *ctx) {
 	return 1;
 }
 
+int system_extractZip(duk_context *ctx){
+	char *path = (char*)duk_to_string(ctx, 0);
+	Zip *handle = ZipOpen(path);
+	if (handle == NULL){
+		//TODO: error
+	}
+	ZipExtract(handle, NULL);
+	ZipClose(handle);
+	return 0;
+}
+
 void systemInit(duk_context *ctx) {
 	duk_push_global_object(ctx);
 	duk_idx_t obj_idx = duk_push_object(ctx);
@@ -156,6 +168,9 @@ void systemInit(duk_context *ctx) {
 	duk_put_prop_string(ctx, obj_idx, "createNotification");
 	duk_push_c_function(ctx, system_getAppStatus, 0);
 	duk_put_prop_string(ctx, obj_idx, "getAppStatus");
+	
+	duk_push_c_function(ctx, system_extractZip, 1);
+	duk_put_prop_string(ctx, obj_idx, "extractZip");
 	
 	duk_put_global_string(ctx, "System");
 	duk_pop(ctx);
