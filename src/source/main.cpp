@@ -65,7 +65,7 @@ int main(int argc, const char** argv) {
 		
 	//Handle module loading
 	//TODO: Load 'em from the same directory as the 3dsx file
-	duk_eval_string(ctx, "Duktape.modSearch=function(id){return FileIO.read((id.charAt(0) == '/' ? '' : FileIO.getExecPath()) + id + '.js').toString();}");
+	duk_eval_string(ctx, "Error.prototype.toString = function () { var line; line = (this || {}).lineNumber; return this.name + ': ' + this.message + ' (line ' + this.lineNumber + ')'; };Duktape.modSearch=function(id){return FileIO.read((id.charAt(0) == '/' ? '' : FileIO.getExecPath()) + id + '.js').toString();}");
 
 	//Load "app.js"
 	log("[JavaScript] Runtime: Running %s...", scriptPath.c_str());
