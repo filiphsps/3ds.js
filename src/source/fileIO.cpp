@@ -57,14 +57,15 @@ int fileIO_read(duk_context *ctx) {
 //FileIO.write placeholder
 int fileIO_write(duk_context *ctx) {
     char *fn = (char*)duk_to_string(ctx, 0);
-    //char *out = (char*)duk_to_string(ctx, 1);
+    char *out = (char*)duk_to_string(ctx, 1);
     
-    if (fn[0] != '/') sprintf(fn, "%s/%s", (char*)execPath.c_str(), fn);
-    printf(fn);
-    //TODO: Write to file
-    log("Warning: Called FileIO.write stub");
-    
-    return 1;
+    FILE *handler = fopen(fn,"w+");
+
+    if (handler) {
+        fprintf(handler, out);
+        fclose(handler);
+    }
+    return 0;
 }
 
 void fileIOInit(duk_context *ctx) {
