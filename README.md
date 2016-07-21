@@ -1,3 +1,4 @@
+<h1 align="center">Put on hold for now.</h1>
 <p align="center">
 	<img src="http://i.imgur.com/40DZ0q7.png"/>
   3DS.js is a framework for running applications made in JavaScript on the Nintendo 3DS
