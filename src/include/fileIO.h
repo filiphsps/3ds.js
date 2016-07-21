@@ -12,7 +12,6 @@
 
 using namespace std;
 
-
 char* _readFile(char* filename);
 int fileIO_getExecPath(duk_context *ctx);
 int fileIO_write(duk_context *ctx);
